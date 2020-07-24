@@ -241,7 +241,7 @@ macro_rules! impl_macro {
                         // We've checked that this works
                         let mut req = self.request.unwrap();
                         let url = url_join(req.borrow().uri(), $e2);
-                        println!("{:#?}", url.unwrap());
+                        println!("{:#?}", url.clone().unwrap());
                         match url {
                             Ok(u) => {
                                 *req.get_mut().uri_mut() = u;
