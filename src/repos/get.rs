@@ -265,6 +265,7 @@ impl_macro!(
         |=> owner ->  Owner = username_str
     @Pulls
         |=> comments -> PullsComments
+        |=> reviews -> PullsReviews
         |
     @Pulls
         |
