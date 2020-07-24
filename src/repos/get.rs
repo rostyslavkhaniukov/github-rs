@@ -113,6 +113,7 @@ from!(
 
     @Pulls
        -> PullsComments = "comments"
+       -> PullsReviews = "reviews"
     @PullsComments
        => PullsCommentsId
     @Pulls
