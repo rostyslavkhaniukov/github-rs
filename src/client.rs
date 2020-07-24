@@ -35,7 +35,7 @@ use std::rc::Rc;
 
 /// Struct used to make calls to the Github API.
 pub struct Github {
-    token: String,
+    token: Option<String>,
     core: Rc<RefCell<Core>>,
     client: Rc<Client<HttpsConnector>>,
 }
@@ -84,14 +84,14 @@ impl Github {
         #[cfg(feature = "rust-native-tls")]
         let client = Client::builder().build(HttpsConnector::new(4)?);
         Ok(Self {
-            token: token.to_string(),
+            token: Some(token.to_string()),
             core: Rc::new(RefCell::new(core)),
             client: Rc::new(client),
         })
     }
 
     /// Get the currently set Authorization Token
-    pub fn get_token(&self) -> &str {
+    pub fn get_token(&self) -> &Option<String> {
         &self.token
     }
 
@@ -101,7 +101,7 @@ impl Github {
     where
         T: ToString,
     {
-        self.token = token.to_string();
+        self.token = Some(token.to_string());
     }
 
     /// Exposes the inner event loop for those who need
