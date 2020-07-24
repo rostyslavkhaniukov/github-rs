@@ -41,6 +41,7 @@ new_type!(
     Pulls
     PullsComments
     PullsCommentsId
+    PullsReviews
     PullsNumber
     PullsNumberComments
     PullsNumberCommits
@@ -324,6 +325,7 @@ exec!(Notifications);
 exec!(Pulls);
 exec!(PullsComments);
 exec!(PullsCommentsId);
+exec!(PullsReviews);
 exec!(PullsNumber);
 exec!(PullsNumberComments);
 exec!(PullsNumberCommits);
