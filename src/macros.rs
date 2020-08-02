@@ -244,7 +244,6 @@ macro_rules! impl_macro {
                         match url {
                             Ok(u) => {
                                 *req.get_mut().uri_mut() = u;
-                                println!("{:#?}", url_join(req.borrow().uri(), $e2).unwrap());
                                 self.request = Ok(req);
                             },
                             Err(e) => {
