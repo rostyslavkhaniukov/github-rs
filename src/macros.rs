@@ -196,6 +196,7 @@ macro_rules! exec {
             {
                 let mut core_ref = self.core.try_borrow_mut()?;
                 let client = self.client;
+                println!("{}", self.request?.into_inner());
                 let work = client.request(self.request?.into_inner()).and_then(|res| {
                     let header = res.headers().clone();
                     let status = res.status();
