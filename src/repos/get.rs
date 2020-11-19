@@ -42,6 +42,7 @@ new_type!(
     PullsComments
     PullsCommentsId
     PullsReviews
+    PullsReviewsId
     PullsNumber
     PullsNumberComments
     PullsNumberCommits
@@ -117,6 +118,8 @@ from!(
        -> PullsReviews = "reviews"
     @PullsComments
        => PullsCommentsId
+    @PullsReviews
+       => PullsReviewsId
     @Pulls
        => PullsNumber
     @PullsNumber
@@ -274,6 +277,9 @@ impl_macro!(
     @PullsComments
         |
         |=> id -> PullsCommentsId = id_str
+    @PullsReviews
+        |
+        |=> id -> PullsReviewsId = id_str
     @PullsNumber
         |=> comments -> PullsNumberComments
         |=> commits -> PullsNumberCommits
@@ -326,6 +332,7 @@ exec!(Pulls);
 exec!(PullsComments);
 exec!(PullsCommentsId);
 exec!(PullsReviews);
+exec!(PullsReviewsId);
 exec!(PullsNumber);
 exec!(PullsNumberComments);
 exec!(PullsNumberCommits);

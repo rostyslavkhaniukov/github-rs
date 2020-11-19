@@ -199,7 +199,6 @@ macro_rules! exec {
                 let work = client.request(self.request?.into_inner()).and_then(|res| {
                     let header = res.headers().clone();
                     let status = res.status();
-                    println!("{}", status);
                     res.into_body()
                         .fold(Vec::new(), |mut v, chunk| {
                             v.extend(&chunk[..]);
