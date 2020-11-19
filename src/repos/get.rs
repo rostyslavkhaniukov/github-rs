@@ -46,6 +46,7 @@ new_type!(
     PullsNumber
     PullsNumberComments
     PullsNumberCommits
+    PullsNumberReviews
     PullsNumberFiles
     PullsNumberRequestedReviewers
     PullsNumberMerge
@@ -126,6 +127,8 @@ from!(
        -> PullsNumberComments = "comments"
     @PullsNumber
        -> PullsNumberCommits = "commits"
+    @PullsNumber
+       -> PullsNumberReviews = "reviews"
     @PullsNumber
        -> PullsNumberFiles = "files"
     @PullsNumber
@@ -282,6 +285,7 @@ impl_macro!(
         |=> id -> PullsReviewsId = id_str
     @PullsNumber
         |=> comments -> PullsNumberComments
+        |=> reviews -> PullsNumberReviews
         |=> commits -> PullsNumberCommits
         |=> files -> PullsNumberFiles
         |=> requested_reviewers -> PullsNumberRequestedReviewers
@@ -336,6 +340,7 @@ exec!(PullsReviewsId);
 exec!(PullsNumber);
 exec!(PullsNumberComments);
 exec!(PullsNumberCommits);
+exec!(PullsNumberReviews);
 exec!(PullsNumberFiles);
 exec!(PullsNumberRequestedReviewers);
 exec!(PullsNumberMerge);
